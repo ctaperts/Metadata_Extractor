@@ -38,6 +38,6 @@ meta_out_final.gsub! /(\^\^)/, ","
 meta_out_final.gsub! /^(,)/, ""
 
 #puts meta_out_final
-open('myfile.csv', 'w') { |f|
+open('output.csv', 'w') { |f|
   f.puts "#{meta_out_final}"
 }

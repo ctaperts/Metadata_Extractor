@@ -1,11 +1,11 @@
 
 puts "Text metadata extractor - by Colby Taperts colbytaperts@gmail.com\n"
 
-puts "Look at all of the text documents before adding input"
-puts "What kind of search would you like? choose the corresponding option below"
+#puts "Look at all of the text documents before adding input"
+#puts "What kind of search would you like? choose the corresponding option below"
 #options
 
-puts "Add a word to search on and extract for example SENT:"
+#puts "Add a word to search on and extract for example SENT:"
 #custom search
 
 txt_files = Dir["./**/*.txt"]
@@ -37,22 +37,7 @@ meta_out_final.gsub! /(,)/, ""
 meta_out_final.gsub! /(\^\^)/, ","
 meta_out_final.gsub! /^(,)/, ""
 
-puts meta_out_final
+#puts meta_out_final
 open('myfile.csv', 'w') { |f|
   f.puts "#{meta_out_final}"
 }
-
-
-#find1 = contents.lines.grep(/FROM/i).grep_v(/ from /)
-#find2 = contents.lines.grep(/TO:/i).grep_v(/mailto/)
-#find3 = contents.lines.grep(/CC:/i)
-#find4 = contents.lines.grep(/SUBJECT:/i)
-#find5 = contents.lines.grep(/DATE RECEIVED:/i)
-#puts input_filename
-#puts find1
-#puts find2
-#puts find3
-#puts find4
-#puts find5
-
-#puts txt_files

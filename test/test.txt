@@ -1,0 +1,12 @@
+FROM=person@account.com
+SENT: anotherperson
+TO: anotherperson
+SUBJECT: anotherperson
+
+
+hello world text!!
+hello world text!!
+hello world text!!
+hello world text!!
+hello world text!!
+hello world text!!

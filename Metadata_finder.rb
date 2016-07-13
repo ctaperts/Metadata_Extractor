@@ -39,11 +39,10 @@ txt_files.each do |file_name|
 		end
 	end
 end
-meta_out
 meta_out_final = "" + meta_out.join("^^") + ""
-meta_out_final.gsub! /(,)/, ""
-meta_out_final.gsub! /(\^\^)/, ","
-meta_out_final.gsub! /^(,)/, ""
+meta_out_final.gsub!(/(,)/, "")
+meta_out_final.gsub!(/(\^\^)/, ",")
+meta_out_final.gsub!(/^(,)/, "")
 
 puts meta_out_final
 open('myfile.csv', 'w') { |f|

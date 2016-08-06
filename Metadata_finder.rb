@@ -27,15 +27,12 @@ txt_files.each do |file_name|
     meta_out << file_name
     find_text.each do |pat, word, mod|
 	if !File.directory? file_name
-	    open_file = File.open("#{file_name}")
-	    read_file = open_file.read
+	    read_file = File.read("#{file_name}")
             if read_file.lines.grep(/#{word}/i).size > 0
                 word_out_one = read_file.lines.grep(/#{word}/)
-                #puts word_out_one
                 meta_out << word_out_one
             else
                 word_out_two =  word
-                #puts word_out_two
                 meta_out << word_out_two
             end
         end

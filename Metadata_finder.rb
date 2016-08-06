@@ -1,4 +1,3 @@
-
 #puts "Text metadata extractor - by Colby Taperts colbytaperts@gmail.com\n"
 #
 #puts "Look at all of the text documents before adding input"
@@ -15,77 +14,44 @@ find_text = [['\A', 'FROM=', 'Regexp::IGNORECASE'], ['\A', 'SENT:', ''], ['\A', 
 
 meta_out = []
 
-meta_out << " "	
+meta_out << "Filename"	
 
 find_text.each do |pat, word, mod|
 	meta_out << word
 end
 
-
-#puts txt_files
-
-
+puts " "
 
 txt_files.each do |file_name|
-meta_out << "\n"	
-puts file_name
-meta_out << file_name
+    meta_out << "!newline"
+    meta_out << file_name
     find_text.each do |pat, word, mod|
-        if !File.directory? file_name
-        open_file = File.open("#{file_name}")
-        read_file = open_file.read
+	if !File.directory? file_name
+	    open_file = File.open("#{file_name}")
+	    read_file = open_file.read
             if read_file.lines.grep(/#{word}/i).size > 0
-                puts read_file.lines.grep(/#{word}/)
-                meta_out << read_file.lines.grep(/#{word}/)
+                word_out_one = read_file.lines.grep(/#{word}/)
+                #puts word_out_one
+                meta_out << word_out_one
             else
-                puts word
+                word_out_two =  word
+                #puts word_out_two
+                meta_out << word_out_two
             end
         end
     end
 end
 
-#puts meta_out
-
-#find1 = contents.lines.grep(/FROM/i).grep_v(/ from /)
-
-#txt_files.each do |file_name|
-	#if !File.directory? file_name
-	#meta_out << "\n"
-		##puts file_name
-		#meta_out << "#{file_name.chomp}"
-		#find_text.each do |pat, word, mod|
-			#File.open(file_name) do |file|
-				#file.each_line do |line|
-					#if line =~ Regexp.new("#{pat}#{word}", "#{mod}")
-						##puts "Found: #{line}"
-						#meta_out << line.chomp
-					#end
-				#end
-			#end
-		#end
-	#end
-#end
-meta_out_final = "" + meta_out.join("^^") + ""
+#some syntax modding
+meta_out_final = meta_out.join('^^')
+meta_out_final.gsub!(/\n/," ")
 meta_out_final.gsub!(/(,)/, "")
 meta_out_final.gsub!(/(\^\^)/, ",")
+meta_out_final.gsub!('!newline',"\n")
 meta_out_final.gsub!(/^(,)/, "")
 
+#output to csv
 puts meta_out_final
 open('myfile.csv', 'w') { |f|
   f.puts "#{meta_out_final}"
 }
-
-
-#find1 = contents.lines.grep(/FROM/i).grep_v(/ from /)
-#find2 = contents.lines.grep(/TO:/i).grep_v(/mailto/)
-#find3 = contents.lines.grep(/CC:/i)
-#find4 = contents.lines.grep(/SUBJECT:/i)
-#find5 = contents.lines.grep(/DATE RECEIVED:/i)
-#puts input_filename
-#puts find1
-#puts find2
-#puts find3
-#puts find4
-#puts find5
-
-#puts txt_files

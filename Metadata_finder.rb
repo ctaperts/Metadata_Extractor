@@ -1,7 +1,3 @@
-require 'pry'
-
-
-
 system("clear")
 puts " "
 puts " "

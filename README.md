@@ -15,6 +15,6 @@ Notes
 * Classes are not setup so if you type in wrong input it will continue but function incorrectly
 * Future version will have more preset searches 
 * Future version will have more advanced presets
-⋅⋅* Ignore whitespace
-⋅⋅* Treat a newline as a character matched by .
-⋅⋅* Perform #{} interpolation only once
+..* Ignore whitespace
+..* Treat a newline as a character matched by .
+..* Perform #{} interpolation only once

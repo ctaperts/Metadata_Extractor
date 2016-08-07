@@ -79,6 +79,20 @@ puts " "
 #puts "######### Pattern Help #########"
 #puts "Use Regexp::IGNORECASE to ignore case"
 puts " "
+puts "Will this search be case sensitive? (y/n)"
+puts " "
+print "> "
+var_sensitive = 0 
+case gets.chomp
+when "y"
+  var_sensitive += 1
+  puts "This search will be case sensitive"
+else
+  puts "This search will be case insensitive"
+end
+puts " "
+puts " "
+
 puts "How many words are you searching for?"
 puts " "
 
@@ -88,7 +102,7 @@ custom_input_num += 1
 puts " "
 
 ##### array
-find_text = []
+find_text = Array.new
 ##### array
 
 var_num = 1
@@ -137,13 +151,19 @@ txt_files.each do |file_name|
     find_text.each do |pat, word, mod|
 	if !File.directory? file_name
 	    read_file = File.read("#{file_name}")
-            if read_file.lines.grep(/#{word}/).size > 0
-                #word_out_one = read_file.lines.grep(Regexp.new(word, Regexp::IGNORECASE) )
-                word_out_one = read_file.lines.grep(Regexp.new(/#{word}/)).first
-                meta_out << word_out_one
-            else
+	    if var_sensitive == 0
+	      if read_file.lines.grep(/#{word}/i).size > 0
+                meta_out << read_file.lines.grep(Regexp.new(/#{word}/i)).first.chomp
+	      else
                 meta_out << ' '
-            end
+	      end
+	    else
+	      if read_file.lines.grep(/#{word}/).size > 0
+                meta_out << read_file.lines.grep(Regexp.new(/#{word}/)).first.chomp
+	      else
+                meta_out << ' '
+	      end
+	    end
         end
     end
 end

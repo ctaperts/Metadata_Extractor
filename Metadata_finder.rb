@@ -42,7 +42,7 @@ puts "1 - General e-mail search including from:, sent:, to:, cc:, bcc:, subject:
 puts "2 - custom search"
 puts " "
 puts " "
-puts "This is not working yet"
+puts "Custom search is not working yet"
 puts " "
 print "> "
 input_get = gets.chomp

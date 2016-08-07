@@ -1,4 +1,4 @@
-Filename,FROM:,SENT:,TO:,CC:,BCC:,SUBJECT:,DATE:,ATTACHMENTS:,
-./test/test.txt, ,SENT: anotherperson ,TO: anotherperson , , ,SUBJECT: anotherperson , , ,
-./test/test2.txt, ,SENT: anotherperson ,TO: anotherperson , , ,SUBJECT: anotherperson , , ,
-./test/test3.txt, ,SENT: some text , , , , , , 
+Filename,SENT:,
+./test/test.txt,SENT: anotherperson ,
+./test/test2.txt,SENT: anotherperson ,
+./test/test3.txt,SENT: some text 

@@ -147,17 +147,17 @@ txt_files.each do |file_name|
     find_text.each do |pat, word, mod|
 	if !File.directory? file_name
 	    read_file = File.read("#{file_name}")
-	    if var_sensitive == 0
-	      if read_file.lines.grep(/#{word}/i).size > 0
-                meta_out << read_file.lines.grep(Regexp.new(/#{word}/i)).first.chomp
-	      else
-                meta_out << ' '
-	      end
-	    else
+	    if var_sensitive == 1
 	      if read_file.lines.grep(/#{word}/).size > 0
                 meta_out << read_file.lines.grep(Regexp.new(/#{word}/)).first.chomp
 	      else
-                meta_out << ' '
+                meta_out << ''
+	      end
+	    else
+	      if read_file.lines.grep(/#{word}/i).size > 0
+                meta_out << read_file.lines.grep(Regexp.new(/#{word}/i)).first.chomp
+	      else
+                meta_out << ''
 	      end
 	    end
         end

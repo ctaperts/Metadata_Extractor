@@ -14,7 +14,9 @@ Custom search has options for case sensitive or insensitive
 Notes
 -----
 * Classes are not setup so if you type in wrong input it will continue but function incorrectly
+
 #### Future Versions
+
 * Additional preset searches 
 * Advanced presets
   * Ignore whitespace

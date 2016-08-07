@@ -1,4 +1,4 @@
-Filename,SENT:,
-./test/test.txt,SENT: anotherperson ,
-./test/test2.txt,SENT: anotherperson ,
-./test/test3.txt,SENT: some text 
+Filename,sent\i,
+./test/test.txt, ,
+./test/test2.txt, ,
+./test/test3.txt, 

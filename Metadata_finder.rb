@@ -32,7 +32,7 @@ puts "        ====    ===  ====  =  =  ====  ==        "
 puts "        =================================        "
 puts " "
 puts " "
-puts "Look at all of the text documents before selecting options below"
+puts "Look at all of the text documents before selecting a option below"
 puts "Metadata_Extractor will search the current and any subfolder for files that end in txt"
 puts " "
 puts "What kind of search would you like? choose the corresponding option below"
@@ -51,14 +51,12 @@ input_get = gets.chomp
 puts input_get
 system("clear")
 
-case_var = 0
 case input_get
 when "1"
 puts " "
 puts " "
   puts "Using from:, sent:, to:, cc:, bcc:, subject:, date:, and attachments: in search"
   find_text = [['\A', 'From:', ''], ['\A', 'Sent:', ''], ['\A', 'To:', ''], ['\A', 'Cc:', ''], ['\A', 'Bcc:', ''], ['\A', 'Subject:', ''], ['\A', 'Date:', ''], ['\A', 'Attachments:', '']]
-  case_var += 1
 puts " "
 puts " "
 
@@ -76,7 +74,7 @@ puts "Enter the number of items you want to search for, this search will only sh
 puts " "
 puts "######### Advanced Help #########"
 puts "Go to http://www.tutorialspoint.com/ruby/ruby_regular_expressions.htm to find patterns to input."
-puts "for example \A before your search term will show only lines that begin with that work ie \"\\\ASent:\""
+puts "for example \\\A before your search term will show only lines that begin with that word ie \"\\\ASent:\""
 puts " "
 #puts "######### Pattern Help #########"
 #puts "Use Regexp::IGNORECASE to ignore case"
@@ -141,12 +139,7 @@ txt_files.each do |file_name|
 	    read_file = File.read("#{file_name}")
             if read_file.lines.grep(/#{word}/).size > 0
                 #word_out_one = read_file.lines.grep(Regexp.new(word, Regexp::IGNORECASE) )
-		if case_var == 1
-		  word = word.downcase
-		  word_out_one = read_file.lines.grep(Regexp.new(/#{word}/)).first.downcase
-		else
-		  word_out_one = read_file.lines.grep(Regexp.new(/#{word}/)).first
-		end
+                word_out_one = read_file.lines.grep(Regexp.new(/#{word}/)).first
                 meta_out << word_out_one
             else
                 meta_out << ' '

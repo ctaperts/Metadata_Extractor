@@ -11,7 +11,7 @@ Two searches are setup
 
 Custom search has options for case sensitive or insensitive
 
-#### Ruby regular expressions for advances searches
+#### Ruby regular expressions for advanced searches
 
 Go here for great tutorials on ruby regular expression to insert into custom search terms [http://www.tutorialspoint.com/ruby/ruby_regular_expressions.htm](http://www.tutorialspoint.com/ruby/ruby_regular_expressions.htm "Link to cheat sheet on ruby regexp") 
 

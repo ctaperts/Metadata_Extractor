@@ -36,7 +36,8 @@ puts "What kind of search would you like? choose the corresponding option below"
 puts " "
 puts " "
 puts "1 - General e-mail search. Includes - from:, sent:, to:, cc:, bcc:, subject:, date:, and attachments:. case-insensitive"
-puts "2 - Custom search"
+puts "2 - Letter search. Includes - date:, to:, from:, re: and invoice no:. case-insensitive"
+puts "3 - Custom search"
 puts " "
 puts " "
 print "> "
@@ -47,43 +48,46 @@ system("clear")
 
 case input_get
 when "1"
-puts " "
-puts " "
+  puts " "
+  puts " "
   puts "Using from:, sent:, to:, cc:, bcc:, subject:, date:, and attachments: in search"
   find_text = [['\A', 'From:', ''], ['\A', 'Sent:', ''], ['\A', 'To:', ''], ['\A', 'Cc:', ''], ['\A', 'Bcc:', ''], ['\A', 'Subject:', ''], ['\A', 'Date:', ''], ['\A', 'Attachments:', '']]
-puts " "
-puts " "
 
 when "2"
+  puts " "
+  puts " "
+  puts "Using date:, to:, from:, re: and invoice no: in search"
+  find_text = [['\A', 'To:', ''],['\A', 'From:', ''], ['\A', 'Re:', ''], ['\A', 'Invoice No:', '']]
+when "3"
 
-puts " "
-puts " "
+  puts " "
+  puts " "
   puts "Custom search"
-puts " "
-puts " "
-puts "######### Help #########"
-puts "Enter the number of items you want to search for, this search will only show the first instance of that term"
-puts " "
-puts "######### Advanced Help #########"
-puts "Go to http://www.tutorialspoint.com/ruby/ruby_regular_expressions.htm to find patterns to input."
-puts "for example \\\A before your search term will show only lines that begin with that word ie \"\\\ASent:\""
-puts " "
-#puts "######### Pattern Help #########"
-#puts "Use Regexp::IGNORECASE to ignore case"
-puts " "
-puts "Will this search be case sensitive? (y/n)"
-puts " "
-print "> "
-var_sensitive = 0 
+  puts " "
+  puts " "
+  puts "######### Help #########"
+  puts "Enter the number of items you want to search for, this search will only show the first instance of that term"
+  puts " "
+  puts "######### Advanced Help #########"
+  puts "Go to http://www.tutorialspoint.com/ruby/ruby_regular_expressions.htm to find patterns to input."
+  puts "for example \\\A before your search term will show only lines that begin with that word ie \"\\\ASent:\""
+  puts " "
+  #puts "######### Pattern Help #########"
+  #puts "Use Regexp::IGNORECASE to ignore case"
+  puts " "
+  puts "Will this search be case sensitive? (y/n)"
+  puts " "
+  print "> "
+  var_sensitive = 0 
 case gets.chomp
 when "y"
-puts " "
-puts " "
+  puts " "
+  puts " "
   var_sensitive += 1
   puts "This search will be case sensitive"
 else
-puts " "
-puts " "
+  puts " "
+  puts " "
   puts "This search will be case insensitive"
 end
 puts " "
@@ -125,8 +129,6 @@ end
 #custom search
 
 
-puts " "
-puts " "
 
 
 # Older arrays used for references
@@ -178,12 +180,9 @@ class Syntax
   end
 end
 
-puts " "
-puts " "
 
 #output to csv
-puts Syntax.out(meta_out)
-open('myfile.csv', 'w') { |f|
+open('metaOut.csv', 'w') { |f|
   f.puts "#{Syntax.out(meta_out)}"
 }
 
@@ -191,12 +190,14 @@ puts " "
 puts " "
 
 puts "##############################"
-puts "######## Output above ########"
-puts "### Outputed to myfile.csv ###"
+puts "## Outputed to metaOut.csv ###"
 puts "######## Successfully ########"
 puts "##############################"
 
 puts " "
 puts " "
+puts "Press enter to escape"
+gets
+
 
 

@@ -1,4 +1,0 @@
-Filename,From,sent,
-./test/test.txt,FROM=person@account.com,SENT: anotherperson,
-./test/test3.txt,,SENT: some text,
-./test/test2.txt,FROM=person@account.com,SENT: anotherperson

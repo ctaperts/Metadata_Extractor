@@ -35,8 +35,6 @@ puts "What kind of search would you like? choose the corresponding option below"
 #options
 puts " "
 puts " "
-puts " "
-
 puts "1 - General e-mail search. Includes - from:, sent:, to:, cc:, bcc:, subject:, date:, and attachments:. case-insensitive"
 puts "2 - Custom search"
 puts " "
@@ -63,7 +61,6 @@ puts " "
   puts "Custom search"
 puts " "
 puts " "
-puts " "
 puts "######### Help #########"
 puts "Enter the number of items you want to search for, this search will only show the first instance of that term"
 puts " "
@@ -77,14 +74,16 @@ puts " "
 puts "Will this search be case sensitive? (y/n)"
 puts " "
 print "> "
-puts " "
-puts " "
 var_sensitive = 0 
 case gets.chomp
 when "y"
+puts " "
+puts " "
   var_sensitive += 1
   puts "This search will be case sensitive"
 else
+puts " "
+puts " "
   puts "This search will be case insensitive"
 end
 puts " "
@@ -126,6 +125,8 @@ end
 #custom search
 
 
+puts " "
+puts " "
 
 
 # Older arrays used for references
@@ -177,9 +178,25 @@ class Syntax
   end
 end
 
+puts " "
+puts " "
 
 #output to csv
 puts Syntax.out(meta_out)
 open('myfile.csv', 'w') { |f|
   f.puts "#{Syntax.out(meta_out)}"
 }
+
+puts " "
+puts " "
+
+puts "##############################"
+puts "######## Output above ########"
+puts "### Outputed to myfile.csv ###"
+puts "######## Successfully ########"
+puts "##############################"
+
+puts " "
+puts " "
+
+

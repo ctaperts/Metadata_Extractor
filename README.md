@@ -3,7 +3,7 @@ Extract metadata from text files
 
 Helps find metadata, for example to from sent etc, in text files that were once an e-mail and other files
 
-Two searches are setup
+Search options
 ------
 1 - General e-mail search. Includes - from:, sent:, to:, cc:, bcc:, subject:, date:, and attachments:. case-insensitive
 

@@ -7,7 +7,9 @@ Search options
 ------
 1 - General e-mail search. Includes - from:, sent:, to:, cc:, bcc:, subject:, date:, and attachments:. case-insensitive
 
-2 - Custom search
+2 - Letter search. Includes - date:, to:, from:, re: and invoice no:. case-insensitivie
+
+3 - Custom search
 
 Custom search has options for case sensitive or insensitive
 
@@ -19,7 +21,7 @@ This is the offical documentation on regular expressions from ruby-docs.org [htt
 
 Notes
 -----
-* Classes are not setup so if you type in wrong input it will continue but function incorrectly
+* Class/recursion is not setup so if you type in wrong input it will continue but function incorrectly
 
 #### Future Versions
 

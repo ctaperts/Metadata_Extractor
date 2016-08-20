@@ -1,3 +1,5 @@
+require 'pry'
+
 system("clear")
 puts " "
 puts " "
@@ -78,12 +80,12 @@ when "3"
   puts "Will this search be case sensitive? (y/n)"
   puts " "
   print "> "
-  var_sensitive = 0 
+  var_options = 0 
 case gets.chomp
 when "y"
   puts " "
   puts " "
-  var_sensitive += 1
+  var_options += 1
   puts "This search will be case sensitive"
 else
   puts " "
@@ -128,6 +130,19 @@ end
 #puts "Add a word to search on and extract for example SENT:"
 #custom search
 
+#############
+#############
+# variable ##
+# Regexp ####
+# options ###
+#############
+#############
+case var_options
+when 0
+  var_regexp_option = "Regexp::IGNORECASE"
+when 1
+  var_regexp_option = ''
+end
 
 
 
@@ -151,18 +166,10 @@ txt_files.each do |file_name|
     find_text.each do |pat, word, mod|
 	if !File.directory? file_name
 	    read_file = File.read("#{file_name}")
-	    if var_sensitive == 1
-	      if read_file.lines.grep(/#{word}/).size > 0
-                meta_out << read_file.lines.grep(Regexp.new(/#{word}/)).first.chomp
-	      else
-                meta_out << ''
-	      end
+	    if read_file.lines.grep(Regexp.new(word, var_regexp_option)).size > 0
+              meta_out << read_file.lines.grep(Regexp.new(word, var_regexp_option)).first.chomp
 	    else
-	      if read_file.lines.grep(/#{word}/i).size > 0
-                meta_out << read_file.lines.grep(Regexp.new(/#{word}/i)).first.chomp
-	      else
-                meta_out << ''
-	      end
+              meta_out << ''
 	    end
         end
     end

@@ -53,13 +53,15 @@ when "1"
   puts " "
   puts " "
   puts "Using from:, sent:, to:, cc:, bcc:, subject:, date:, and attachments: in search"
-  find_text = [['\A', 'From:', ''], ['\A', 'Sent:', ''], ['\A', 'To:', ''], ['\A', 'Cc:', ''], ['\A', 'Bcc:', ''], ['\A', 'Subject:', ''], ['\A', 'Date:', ''], ['\A', 'Attachments:', '']]
+  find_text = ['From:', 'Sent:', 'To:', 'Cc:', 'Bcc:', 'Subject:', 'Date:', 'Attachments:' ]
+  var_regexp_option = "Regexp::IGNORECASE"
 
 when "2"
   puts " "
   puts " "
   puts "Using date:, to:, from:, re: and invoice no: in search"
-  find_text = [['\A', 'To:', ''],['\A', 'From:', ''], ['\A', 'Re:', ''], ['\A', 'Invoice No:', '']]
+  find_text = ['To:', 'From:', 'Re:', 'Invoice No:']
+  var_regexp_option = "Regexp::IGNORECASE"
 when "3"
 
   puts " "
@@ -112,13 +114,7 @@ var_num = 1
 while var_num < custom_input_num
   print "Search term #{var_num}: "
   custom_word = gets.chomp
-  #print "Search pattern: "
-  #custom_pat = gets.chomp
-  custom_pat = ''
-  #print "Search modifier: "
-  #custom_mod = gets.chomp
-  custom_mod = ''
-  find_text << [custom_pat, custom_word, custom_mod]
+  find_text << [ custom_word ]
   var_num += 1
 end
 
@@ -154,7 +150,7 @@ end
 meta_out = []
 meta_out << "Filename"	
 
-find_text.each do |pat, word, mod|
+find_text.each do |word|
 	meta_out << word
 end
 
@@ -163,7 +159,7 @@ txt_files = Dir["./**/*.txt"]
 txt_files.each do |file_name|
     meta_out << "!newline"
     meta_out << file_name
-    find_text.each do |pat, word, mod|
+    find_text.each do |word|
 	if !File.directory? file_name
 	    read_file = File.read("#{file_name}")
 	    if read_file.lines.grep(Regexp.new(word, var_regexp_option)).size > 0

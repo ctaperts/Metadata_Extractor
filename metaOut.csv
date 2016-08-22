@@ -1,4 +1,4 @@
-Filename,HELLO,
-./test/test.txt,hello world text!!,
-./test/test2.txt,hello world text!!,
-./test/test3.txt,hello world text!! sent
+Filename,To:,From:,Re:,Invoice No:,
+./test/test.txt,TO: anotherperson,,,,
+./test/test2.txt,TO: anotherperson,,,,
+./test/test3.txt,,,,

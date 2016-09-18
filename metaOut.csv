@@ -1,4 +1,4 @@
-Filename,To:,From:,Re:,Invoice No:,
-./test/test.txt,TO: anotherperson,,,,
-./test/test2.txt,TO: anotherperson,,,,
-./test/test3.txt,,,,
+Filename,From:,Sent:,To:,Cc:,Bcc:,Subject:,Date:,Attachments:,
+./test/test.txt,,SENT: anotherperson,TO: anotherperson,,,SUBJECT: anotherperson,,,
+./test/test2.txt,,SENT: anotherperson,TO: anotherperson,,,SUBJECT: anotherperson,,,
+./test/test3.txt,,SENT: some text,,,,,,

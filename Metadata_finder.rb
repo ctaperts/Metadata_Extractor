@@ -154,6 +154,9 @@ find_text.each do |word|
 	meta_out << word
 end
 
+class Meta_data_formula
+  def self.input(meta_out, var_regexp_option, find_text)
+
 txt_files = Dir["./**/*.txt"]
 
 txt_files.each do |file_name|
@@ -170,6 +173,12 @@ txt_files.each do |file_name|
         end
     end
 end
+
+  end
+end
+
+Meta_data_formula.input(meta_out, var_regexp_option, find_text)
+
 
 class Syntax
   def self.out(input)
